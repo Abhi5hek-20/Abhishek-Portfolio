@@ -118,8 +118,8 @@ const HeroText = () => {
         </div>
         <div className="flex flex-col md:hidden gap-3 mt-4  z-50 p-4 rounded-lg w-full max-w-md mx-auto items-center justify-center">
           <a
-            href="/ABHISHEK_RESUME.PDF"
-            download
+            href="/ABHISHEK_RESUME.pdf"
+            target="_blank" rel="noopener noreferrer"
             className="px-5 py-2 rounded-md flex items-center gap-2 font-semibold shadow-lg bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 text-white hover:from-purple-600 hover:to-blue-500 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 border border-transparent w-full md:w-auto text-center justify-center"
             style={{ boxShadow: '0 4px 24px 0 rgba(80, 120, 255, 0.25)' }}
           >
