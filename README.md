@@ -6,19 +6,6 @@ A modern, animated 3D developer portfolio built with React, Three.js, TailwindCS
 
 ---
 
-## 📚 Table of Contents
-
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Assets](#-assets)
-- [Contact Me](#-contact-me)
-- [Suggestions or Feedback](#-suggestions-or-feedback)
-- [Like This Project?](#-like-this-project)
-
----
-
 ## ✨ Features
 
 - 🔥 3D visuals powered by **React Three Fiber** and **Drei**
@@ -69,8 +56,7 @@ A modern, animated 3D developer portfolio built with React, Three.js, TailwindCS
 ## 🚀 Getting Started
 1. Clone the Repository
 ```bash
-git clone https://github.com/Ali-Sanati/Portfolio.git
-cd Portfolio
+https://github.com/Abhi5hek-20/Abhishek-Portfolio
 ```
 2. Install Dependencies
 ```bash
@@ -80,8 +66,6 @@ npm install
 ```bash
 npm run dev
 ```
-The app will be available at http://localhost:5173.
-
 ---
 
 ## 🔗 Assets
@@ -90,14 +74,14 @@ Assets used in the project can be found [here](https://github.com/user-attachmen
 ---
 
 ## 📬 Contact Me
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/ali.sanatidev/reels/) 
-[![Static Badge](https://img.shields.io/badge/Youtube-%23FF0033?style=flat&logo=youtube)](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-sanati/) 
+## 📬 Contact Me  
+[![LinkedIn](./assets/linkedin-logo.png)](https://www.linkedin.com/in/abhishek-a-125bb5322/)
+
 
 ---
 
 ## 💡 Suggestions or Feedback?
-Leave a comment on the [YouTube video](https://youtu.be/S9UQItTpwUQ) or open an issue here on GitHub.<br/>
+
 👉 What should I build next?
 
 - A beautiful Landing Page
@@ -106,7 +90,6 @@ Leave a comment on the [YouTube video](https://youtu.be/S9UQItTpwUQ) or open an 
 
 - A fun App Clone (YouTube, Netflix, etc.)
 
-Or another interactive Portfolio
 
 Let me know!
 
