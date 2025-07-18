@@ -4,61 +4,107 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 // Navigation Component
 function Navigation({ onLinkClick }) {
+  const navItems = [
+    { name: "Home", to: "home" },
+    { name: "About", to: "about" },
+    { name: "Work", to: "work" },
+    { name: "Contact", to: "contact" }
+  ];
+
   return (
-    <ul className="nav-ul">
-      <li className="nav-li ">
+    <nav className="hidden sm:flex sm:space-x-20 space-x-8">
+      {navItems.map((item) => (
         <Link
-          className="nav-link cursor-pointer"
-          to="home"
+          key={item.name}
+          to={item.to}
+          spy={true}
           smooth={true}
+          offset={-70}
           duration={500}
-          offset={-50}
           onClick={onLinkClick}
+          className="text-neutral-300 hover:text-white transition-colors duration-200 cursor-pointer font-medium"
         >
-          Home
+          {item.name}
         </Link>
-      </li>
-      <li className="nav-li">
-        <Link
-          className="nav-link cursor-pointer"
-          to="about"
-          smooth={true}
-          duration={300}
-          offset={-50}
-          onClick={onLinkClick}
-        >
-          About
-        </Link>
-      </li>
-      <li className="nav-li">
-        <Link
-          className="nav-link cursor-pointer"
-          to="work"
-          smooth={true}
-          duration={300}
-          offset={-50}
-          onClick={onLinkClick}
-        >
-          Work
-        </Link>
-      </li>
-      <li className="nav-li">
-        <Link
-          className="nav-link cursor-pointer"
-          to="contact"
-          smooth={true}
-          duration={300}
-          offset={-50}
-          onClick={onLinkClick}
-        >
-          Contact
-        </Link>
-      </li>
-    </ul>
+      ))}
+    </nav>
   );
 }
 
-// Navbar Component
+// Mobile Navigation Component
+function MobileNavigation({ isOpen, onLinkClick }) {
+  const navItems = [
+    { name: "Home", to: "home" },
+    { name: "About", to: "about" },
+    { name: "Work", to: "work" },
+    { name: "Contact", to: "contact" }
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
+      transition={{ duration: 0.2 }}
+      className={`${
+        isOpen ? "block" : "hidden"
+      } absolute top-full left-0 right-0 bg-neutral-800/80 backdrop-blur-sm z-50 sm:hidden`}
+    >
+      <div className="px-4 py-6 space-y-4">
+        {navItems.map((item) => (
+          <Link
+            key={item.name}
+            to={item.to}
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            onClick={onLinkClick}
+            className="block text-neutral-300 hover:text-white transition-colors duration-200 cursor-pointer font-medium py-2"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+// Hamburger Menu Button Component
+function HamburgerButton({ isOpen, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="flex flex-col justify-center items-center w-8 h-8 cursor-pointer text-neutral-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-900 sm:hidden transition-colors duration-200"
+      aria-label="Toggle mobile menu"
+    >
+      <motion.span
+        animate={{
+          rotate: isOpen ? 45 : 0,
+          y: isOpen ? 8 : 0,
+        }}
+        transition={{ duration: 0.2 }}
+        className="block w-6 h-0.5 bg-current mb-1"
+      />
+      <motion.span
+        animate={{
+          opacity: isOpen ? 0 : 1,
+        }}
+        transition={{ duration: 0.2 }}
+        className="block w-6 h-0.5 bg-current mb-1"
+      />
+      <motion.span
+        animate={{
+          rotate: isOpen ? -45 : 0,
+          y: isOpen ? -8 : 0,
+        }}
+        transition={{ duration: 0.2 }}
+        className="block w-6 h-0.5 bg-current"
+      />
+    </button>
+  );
+}
+
+// Main Navbar Component
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,47 +112,34 @@ const Navbar = () => {
     setIsOpen(false); // Close mobile menu on link click
   };
 
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+    setIsOpen(false);
+  };
+
   return (
-    <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40 h-15">
-      <div className="mx-auto c-space max-w-7xl">
-        <div className="flex justify-between pt-2">
-          <span
-            onClick={() => scroll.scrollToTop()}
-            className="text-2xl font-bold cursor-pointer transition-colors text-neutral-300 hover:text-white pt-1"
+    <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-800/60 backdrop-blur-sm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:mr-12">
+          {/* Logo */}
+          <div
+            onClick={scrollToTop}
+            className="text-2xl font-bold cursor-pointer transition-colors text-neutral-300 hover:text-white"
           >
             Abhishek
-          </span>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
-          >
-            <img
-              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-              className="w-6 h-6"
-              alt="toggle"
-            />
-          </button>
-          <nav className="hidden sm:flex">
-            <Navigation />
-          </nav>
-        </div>
-      </div>
+          </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <motion.div
-          className="backdrop-blur-sm overflow-hidden text-end  flex flex-col items-center sm:hidden bg-white/10"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          style={{ maxHeight: "100vh" }}
-          transition={{ duration: 1 }}
-        >
-          <nav className="pb-5">
-            <Navigation onLinkClick={handleLinkClick} />
-          </nav>
-        </motion.div>
-      )}
-    </div>
+          {/* Desktop Navigation */}
+          <Navigation onLinkClick={handleLinkClick} />
+
+          {/* Mobile Menu Button */}
+          <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+        </div>
+
+        {/* Mobile Navigation */}
+        <MobileNavigation isOpen={isOpen} onLinkClick={handleLinkClick} />
+      </div>
+    </header>
   );
 };
 
