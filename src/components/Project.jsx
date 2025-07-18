@@ -6,7 +6,7 @@ const Project = ({
   description,
   subDescription,
   href,
-  extraImages, // ✅ correctly match project data
+  extraImages, //  correctly match project data
   tags
 }) => {
   const [isHidden, setIsHidden] = useState(false);
@@ -36,7 +36,7 @@ const Project = ({
           title={title}
           description={description}
           subDescription={subDescription}
-          extraImages={extraImages} // ✅ send correct prop
+          extraImages={extraImages} //  send correct prop
           tags={tags}
           href={href}
           closeModal={() => setIsHidden(false)}

@@ -63,13 +63,7 @@ const HeroText = () => {
           >
             GET RESUME
           </a>
-          {/* <a
-            href="#projects"
-            className="px-5 py-2 rounded-md font-semibold border border-blue-400 text-blue-200 bg-white/10 hover:bg-blue-600 hover:text-white hover:border-blue-500 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200"
-            style={{ boxShadow: '0 2px 12px 0 rgba(80, 120, 255, 0.10)' }}
-          >
-            View Projects
-          </a> */}
+          
           <a
             href="#contact"
             className="px-5 py-2 rounded-md font-semibold border border-purple-400 text-purple-200 bg-white/10 hover:bg-purple-600 hover:text-white hover:border-purple-500 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-200 w-full md:w-auto text-center justify-center"
