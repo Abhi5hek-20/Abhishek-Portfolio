@@ -67,7 +67,7 @@ const Projects = () => {
         {/* Modal */}
         {showModal && selectedProject && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="rounded-xl max-w-xl w-140 h-150 overflow-hidden relative w-fit mx-auto"> {/* project card */}
+            <div className="rounded-xl max-w-xl h-150 overflow-hidden relative w-fit mx-auto"> {/* project card */}
               {/* Close Button */}
               <button
                 onClick={handleClose}

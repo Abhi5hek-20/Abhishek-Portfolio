@@ -95,7 +95,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <motion.div
-          className="block backdrop-blur-sm overflow-hidden text-end  flex flex-col items-center sm:hidden bg-white/10"
+          className="backdrop-blur-sm overflow-hidden text-end  flex flex-col items-center sm:hidden bg-white/10"
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           style={{ maxHeight: "100vh" }}
