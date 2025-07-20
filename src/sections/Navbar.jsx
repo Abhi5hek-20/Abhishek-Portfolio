@@ -18,7 +18,7 @@ function Navigation({ onLinkClick }) {
   ];
 
   return (
-    <nav className="hidden sm:flex space-x-10 px-6 py-3">
+    <nav className="hidden sm:flex space-x-10 px-6 py-3 ">
       {navItems.map((item) => (
         <Link
           key={item.name}
@@ -64,9 +64,9 @@ function MobileNavigation({ isOpen, onLinkClick }) {
       transition={{ duration: 0.2 }}
       className={`${
         isOpen ? "block" : "hidden"
-      } absolute top-full left-0 right-0 bg-neutral-800/80 backdrop-blur-sm z-50 sm:hidden`}
+      } absolute h-[100vh] w-[100vw] left-0 right-0 bg-black/80 backdrop-blur-sm z-50 sm:hidden flex justify-center`}
     >
-      <div className="px-4 py-6 space-y-4">
+      <div className=" space-y-4  h-fit mt-30">
         {navItems.map((item) => (
           <Link
             key={item.name}
@@ -76,7 +76,7 @@ function MobileNavigation({ isOpen, onLinkClick }) {
             offset={-70}
             duration={500}
             onClick={onLinkClick}
-            className="group relative block text-neutral-300 hover:text-white transition-colors duration-200 cursor-pointer font-medium py-2"
+            className="group relative block text-neutral-300 hover:text-white transition-colors duration-200 cursor-pointer font-medium py-2 text-xl"
           >
             <span className="flex items-center gap-3">
               {item.icon}
@@ -98,7 +98,7 @@ function HamburgerButton({ isOpen, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="flex flex-col justify-center items-center w-8 h-8 cursor-pointer text-neutral-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-900 sm:hidden transition-colors duration-200"
+      className="flex flex-col justify-center items-center w-8 h-8 cursor-pointer text-neutral-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-900 sm:hidden transition-colors duration-200"
       aria-label="Toggle mobile menu"
     >
       <motion.span
@@ -159,14 +159,14 @@ const Navbar = () => {
           <Navigation onLinkClick={handleLinkClick} />
 
           {/* Mobile Menu Button */}
-          <HamburgerButton
+          <HamburgerButton 
             isOpen={isOpen}
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen(!isOpen) }
           />
         </div>
 
         {/* Mobile Navigation */}
-        <MobileNavigation
+        <MobileNavigation 
           isOpen={isOpen}
           onLinkClick={handleLinkClick}
         />

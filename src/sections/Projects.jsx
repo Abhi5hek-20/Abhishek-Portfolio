@@ -67,33 +67,36 @@ const Projects = () => {
 
         {/* Modal */}
         {showModal && selectedProject && (
-          <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 sm:p-6">
-            <div className="relative rounded-2xl shadow-2xl max-w-7xl w-full max-h-[90vh] overflow-y-auto p-6 pt-0">
+          <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center sm:p-3">
+            <div className=" relative rounded-2xl shadow-2xl max-w-7xl w-full max-h-[94vh] overflow-y-auto p-6 pt-0 ">
               <button
                 onClick={handleClose}
-                className="absolute right-8 p-0 text-white hover:text-blue-400 transition"
+                className="absolute right-0 text-white hover:text-blue-400 transition mx-2"
               >
                 <X size={28} />
               </button>
 
-              <h2 className="text-white text-2xl font-bold mb-6 text-center">
+              <div className="mb-6 text-center text-2xl font-bold">
+                <h2 className="text-white text-2xl font-bold  text-center">
                 {selectedProject.title}
               </h2>
+              { selectedProject.id == 2 && (<h2>{selectedProject?.subTitle}</h2>)}
+              </div>
 
               {/* Images */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-6 overflow-x-auto">
+              <div className="flex flex-col sm:flex-row gap-9 mb-6 overflow-x-auto ">
                 {selectedProject.extraImages?.map((img, idx) => (
                   <img
                     key={idx}
                     src={img}
                     alt={`${selectedProject.title} screenshot ${idx + 1}`}
-                    className=" object-contain w-full max-h-[260px]"
+                    className="object-contain max-h-[260px]"
                   />
                 ))}
               </div>
 
               {/* Description */}
-              <div className="text-white">
+              <div className="text-white ">
                 <h3 className="text-blue-400 text-2xl font-semibold mb-2">
                   Description
                 </h3>
@@ -107,7 +110,7 @@ const Projects = () => {
                 ))}
 
                 {/* Tags */}
-                <div className="mt-6">
+                <div className="mt-6 ">
                   <h3 className="text-blue-400 text-2xl font-semibold mb-3">
                     Technologies Used
                   </h3>

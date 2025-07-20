@@ -26,7 +26,8 @@ export const myProjects = [
   },
   {
     id: 2,
-    title: "UberForBlood — Full-Stack MERN Application",
+    title: "UberForBlood",
+    subTitle:"MERN Application",
     github: "https://github.com/abhishekam2004/uberforblood",
     description:
       "Designed a real-time blood donation platform with Socket.io for instant donor-seeker communication. Used Redux Toolkit for scalable state management and MongoDB for persistent user/request data. Reduced geolocation response time by ~80% using client-side caching. Implemented secure user authentication and optimized backend API throughput.",
