@@ -1,18 +1,24 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Link, animateScroll as scroll } from "react-scroll";
+import {
+  Home,
+  User,
+  Code,
+  Mail
+} from "lucide-react";
 
-// Navigation Component
+// Navigation Component (Desktop)
 function Navigation({ onLinkClick }) {
   const navItems = [
-    { name: "Home", to: "home" },
-    { name: "About", to: "about" },
-    { name: "Work", to: "work" },
-    { name: "Contact", to: "contact" }
+    { name: "Home", to: "home", icon: <Home className="w-5 h-5" /> },
+    { name: "About", to: "about", icon: <User className="w-5 h-5" /> },
+    { name: "Work", to: "work", icon: <Code className="w-5 h-5" /> },
+    { name: "Contact", to: "contact", icon: <Mail className="w-5 h-5" /> },
   ];
 
   return (
-    <nav className="hidden sm:flex sm:space-x-20 space-x-8">
+    <nav className="hidden sm:flex space-x-10 px-6 py-3">
       {navItems.map((item) => (
         <Link
           key={item.name}
@@ -22,9 +28,20 @@ function Navigation({ onLinkClick }) {
           offset={-70}
           duration={500}
           onClick={onLinkClick}
-          className="text-neutral-300 hover:text-white transition-colors duration-200 cursor-pointer font-medium"
+          className="group relative text-neutral-200 hover:text-white transition-colors duration-200 cursor-pointer text-lg font-medium flex items-center gap-2"
         >
-          {item.name}
+          {/* icon + label */}
+          <span className="flex items-center gap-2">
+            {item.icon}
+            {item.name}
+          </span>
+
+          {/* animated underline */}
+          <span
+  aria-hidden="true"
+  className="pointer-events-none absolute rounded-4xl left-0.5 top-7 h-[3px] w-0 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 transition-all duration-200 group-hover:w-[98%]"
+/>
+
         </Link>
       ))}
     </nav>
@@ -34,10 +51,10 @@ function Navigation({ onLinkClick }) {
 // Mobile Navigation Component
 function MobileNavigation({ isOpen, onLinkClick }) {
   const navItems = [
-    { name: "Home", to: "home" },
-    { name: "About", to: "about" },
-    { name: "Work", to: "work" },
-    { name: "Contact", to: "contact" }
+    { name: "Home", to: "home", icon: <Home className="w-5 h-5" /> },
+    { name: "About", to: "about", icon: <User className="w-5 h-5" /> },
+    { name: "Work", to: "work", icon: <Code className="w-5 h-5" /> },
+    { name: "Contact", to: "contact", icon: <Mail className="w-5 h-5" /> },
   ];
 
   return (
@@ -59,9 +76,16 @@ function MobileNavigation({ isOpen, onLinkClick }) {
             offset={-70}
             duration={500}
             onClick={onLinkClick}
-            className="block text-neutral-300 hover:text-white transition-colors duration-200 cursor-pointer font-medium py-2"
+            className="group relative block text-neutral-300 hover:text-white transition-colors duration-200 cursor-pointer font-medium py-2"
           >
-            {item.name}
+            <span className="flex items-center gap-3">
+              {item.icon}
+              {item.name}
+            </span>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-6 bottom-1 h-[2px] w-0 bg-blue-500 transition-all duration-300 group-hover:w-[88%]"
+            />
           </Link>
         ))}
       </div>
@@ -69,7 +93,7 @@ function MobileNavigation({ isOpen, onLinkClick }) {
   );
 }
 
-// Hamburger Menu Button Component
+// Hamburger Menu Button
 function HamburgerButton({ isOpen, onClick }) {
   return (
     <button
@@ -124,20 +148,28 @@ const Navbar = () => {
           {/* Logo */}
           <div
             onClick={scrollToTop}
-            className="text-2xl font-bold cursor-pointer transition-colors text-neutral-300 hover:text-white"
+            className="cursor-pointer transition-colors text-neutral-300 hover:text-white"
           >
-            Abhishek
+            <p className="text-3xl ml-4 sm:ml-20 bg-gradient-to-r from-purple-500 via-pink-400 to-indigo-400 bg-clip-text text-transparent font-bold">
+              abhi.dev /
+            </p>
           </div>
 
           {/* Desktop Navigation */}
           <Navigation onLinkClick={handleLinkClick} />
 
           {/* Mobile Menu Button */}
-          <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+          <HamburgerButton
+            isOpen={isOpen}
+            onClick={() => setIsOpen(!isOpen)}
+          />
         </div>
 
         {/* Mobile Navigation */}
-        <MobileNavigation isOpen={isOpen} onLinkClick={handleLinkClick} />
+        <MobileNavigation
+          isOpen={isOpen}
+          onLinkClick={handleLinkClick}
+        />
       </div>
     </header>
   );
