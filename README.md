@@ -2,7 +2,7 @@
 
 A modern, animated 3D developer portfolio built with React, Three.js, TailwindCSS, and motion effects — designed to help you stand out and showcase your skills creatively.
 
-![3d Portfolio Screenshot GitHub](https://github.com/user-attachments/assets/9b0ed20e-074e-4f2a-81d8-20c9da751e9e)
+![3d Portfolio Screenshot GitHub](https://github.com/Abhi5hek-20/Abhishek-Portfolio/blob/main/public/assets/projects/Home_shot.png)
 
 ---
 
@@ -74,7 +74,6 @@ Assets used in the project can be found [here](https://github.com/user-attachmen
 ---
 
 ## 📬 Contact Me
-## 📬 Contact Me  
 [![LinkedIn](./assets/linkedin-logo.png)](https://www.linkedin.com/in/abhishek-a-125bb5322/)
 
 
@@ -88,12 +87,7 @@ Assets used in the project can be found [here](https://github.com/user-attachmen
 
 - A complete E-commerce site
 
-- A fun App Clone (YouTube, Netflix, etc.)
-
 
 Let me know!
 
 ---
-
-## ⭐ Like This Project?
-Star the repo and [subscribe](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA??sub_confirmation=1) to the YouTube channel for more dev content!
